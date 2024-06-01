@@ -1,0 +1,17 @@
+{% extends 'library/base.html' %}
+
+{% block content %}
+<h1>Rental Operations</h1>
+<div class="list-group">
+    {% for rental in rentals %}
+        <div class="list-group-item">
+            <h5>Rental ID: {{ rental.id }}</h5>
+            <p>Book ID: {{ rental.book.id }}</p>
+            <p>Book Title: {{ rental.book.title }}</p>
+            <p>Renter: {{ rental.renter_name }}</p>
+            <p>Rental Date: {{ rental.rental_date }}</p>
+            <p>Return Date: {% if rental.return_date %}{{ rental.return_date }}{% else %}Not Returned{% endif %}</p>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'library/base.html' %}
+
+{% block content %}
+<h1>All Books</h1>
+<div class="list-group">
+    {% for book in books %}
+        <div class="list-group-item">
+            <h5>{{ book.id }}: {{ book.title }}</h5>
+            <p>Author: {{ book.author }}</p>
+            <p>Available Copies: {{ book.available_copies }}</p>
+            <form method="post" action="{% url 'delete_book' book.id %}" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+            <a href="{% url 'update_book' book.id %}" class="btn btn-primary">Update</a>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

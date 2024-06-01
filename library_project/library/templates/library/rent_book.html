@@ -1,0 +1,10 @@
+{% extends 'library/base.html' %}
+
+{% block content %}
+<h1>Rent Book</h1>
+<form method="post" class="form">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Rent Book</button>
+</form>
+{% endblock %}
